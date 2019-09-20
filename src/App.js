@@ -4,7 +4,12 @@ import Header from "./components/Header.js";
 import WelcomePage from "./components/WelcomePage";
 import CharacterList from "./components/CharacterList";
 import SearchForm from "./components/Form";
-import axios from "axios";
+import styled from "styled-components";
+
+const StyledMain = styled.main`
+  background-color: cornflowerblue;
+  font-family: 'Shadows Into Light', cursive;
+`;
 
 export default function App() {
 
@@ -23,7 +28,7 @@ export default function App() {
   const validationSchema = {a:'boy'};
 
   return (
-    <main>
+    <StyledMain>
       <Header />
       <Route exact path='/' render={props => <WelcomePage {...props} />} />
       <Route path='/characters' 
@@ -38,6 +43,6 @@ export default function App() {
         characters={characters} 
         setCharacters={setCharacters} />}
       />
-    </main>
+    </StyledMain>
   );
 }
