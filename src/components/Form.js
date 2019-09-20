@@ -13,6 +13,11 @@ const StyledDiv = styled.div`
       margin: 0 15px;
   }
 
+  div {
+      color: whitesmoke;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
   
 `;
 
@@ -30,8 +35,8 @@ function SearchForm (props) {
                     <StyledDiv>
                     <label><strong>Search by Name:</strong></label>
                     <Field name='name' type='text' placeholder='Enter Name' />
-                    <ErrorMessage name='name' component='div' />
                     <button type="submit">Enter</button>
+                    <ErrorMessage name='name' component='div' />
                     </StyledDiv>
                 </Form>
                 )

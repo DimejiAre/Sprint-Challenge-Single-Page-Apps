@@ -12,7 +12,7 @@ const StyledSection = styled.section`
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
 
-  const {characters, setCharacters} = props;
+  const {characters, setCharacters, setServerError} = props;
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -22,7 +22,7 @@ export default function CharacterList(props) {
       setCharacters(response.data.results)
     })
     .catch(err => {
-      console.log(err);
+      setServerError(err.message)
     })
   }, []);
 
