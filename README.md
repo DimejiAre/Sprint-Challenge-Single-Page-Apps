@@ -27,7 +27,9 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: Client side routing is the process of requesting for different resources on the browser without having to make a network request or server side call. JavaScript handles routing internally and is used to maintain State or memory within our applications and use that memory to tell the Browser what to display when a resource is requested.
+
+With Client-side routing, application speed may be increased as No full page reload is required as the browser only changes the portion of the page whose state has changed. It also allows for lazy loading and rich UI interactions.
 
 ## Project Set Up
 
