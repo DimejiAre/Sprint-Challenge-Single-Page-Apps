@@ -28,13 +28,13 @@ function SearchForm (props) {
         <Formik 
             validationSchema={validationSchema}
             initialValues={{name: ''}}
-            onSubmit={search}
+            // onSubmit={search}
             render={props => {
                 return (
                 <Form>
                     <StyledDiv>
                     <label><strong>Search by Name:</strong></label>
-                    <Field name='name' type='text' placeholder='Enter Name' />
+                    <input name='name' onChange={search} type='text' placeholder='Enter Name' />
                     <button type="submit">Enter</button>
                     <ErrorMessage name='name' component='div' />
                     </StyledDiv>
