@@ -38,6 +38,7 @@ export default function Header() {
       <div>
         <button><Link to="/">Home</Link></button>
         <button><Link to="/characters">View Characters</Link></button>
+        <button><Link to="/locations">View Locations</Link></button>
       </div>
     </StyledHeader>
   );
