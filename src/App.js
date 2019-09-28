@@ -20,33 +20,27 @@ export default function App() {
   const [locations, setLocations] = useState([]);
   const [serverError, setServerError] = useState('');
 
-  // const search = (formValue, actions) => {
-  //   console.log(formValue)
-  //   axios.get('https://rickandmortyapi.com/api/character/')
-  //   .then( response => {
-  //     const newCharacters = response.data.results;
-  //     const matchedCharacters = newCharacters.filter( chr => {
-  //       if(chr.name.toLowerCase().includes(formValue.name)){
-  //         return chr
-  //       }
-  //     })
-  //     if(matchedCharacters.length){
-  //       setCharacters(matchedCharacters);
-  //       setServerError("");
-  //     }
-  //     else{
-  //       setServerError("Did not find any Character matching this name");
-  //     }
-  //     // actions.resetForm();
-  //   })
-  //   .catch(err => {
-  //     setServerError(err.message);
-  //   })
+  const search = (formValue, actions) => {
+    const name = formValue.name.toLowerCase();
+    axios.get(`https://rickandmortyapi.com/api/character/?name=${name}`)
+    .then( response => {
+      const newCharacters = response.data.results;
+      if(newCharacters.length){
+        setCharacters(newCharacters);
+        setServerError("");
+      }
+      else{
+        setServerError("Did not find any Character matching this name");
+      }
+      actions.resetForm();
+    })
+    .catch(err => {
+      setServerError(err.message);
+    })
     
-  // }
+  }
 
-  const search = event => {
-    console.log(event.target.value)
+  const changeSearch = event => {
     const value = event.target.value;
     axios.get('https://rickandmortyapi.com/api/character/')
     .then( response => {
@@ -82,8 +76,9 @@ export default function App() {
       <Route exact path='/' render={props => <WelcomePage {...props} />} />
       <Route path='/characters' 
         render={props => <SearchForm 
-        {...props} 
-        search={search} 
+        {...props}
+        search={search}
+        changeSearch={changeSearch} 
         validationSchema={validationSchema} />}
       />
       <Route path='/characters' 

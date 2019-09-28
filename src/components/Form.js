@@ -6,7 +6,9 @@ const StyledDiv = styled.div`
   margin: 10px;
 
   label {
-      margin: 0 15px 0 0;
+      margin: 0 10px 0 0;
+      width: 120px;
+      display: inline-block;
   }
 
   button {
@@ -22,19 +24,22 @@ const StyledDiv = styled.div`
 `;
 
 function SearchForm (props) {
-    const {search, validationSchema} = props;
+    const {search, changeSearch, validationSchema} = props;
 
     return (
         <Formik 
             validationSchema={validationSchema}
             initialValues={{name: ''}}
-            // onSubmit={search}
+            onSubmit={search}
             render={props => {
                 return (
                 <Form>
                     <StyledDiv>
+                    <label><strong>Filter by Name:</strong></label>
+                    <input onChange={changeSearch} type='text' placeholder='Enter Name' />
+                    <br />
                     <label><strong>Search by Name:</strong></label>
-                    <input name='name' onChange={search} type='text' placeholder='Enter Name' />
+                    <Field name='name' type='text' placeholder='Enter Character'/>
                     <button type="submit">Enter</button>
                     <ErrorMessage name='name' component='div' />
                     </StyledDiv>
