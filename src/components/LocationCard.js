@@ -14,8 +14,8 @@ export default function LocationCard({ location }) {
   return (
     <StyledDiv>
       <h2>{location.name}</h2>
-      <p>{location.type}</p>
-      <p>{location.dimension}</p>
+      <p>Type: {location.type}</p>
+      <p>Dimension: {location.dimension}</p>
       {/* <div>
         {residents.map(resident => (
           <p>{resident}</p>
